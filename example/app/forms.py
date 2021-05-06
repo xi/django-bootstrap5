@@ -13,6 +13,14 @@ MEDIA_CHOICES = (
 )
 
 
+class SingleTestForm(forms.Form):
+    """Form with a variety of widgets to test django_bootstrap5 rendering."""
+
+    cc_myself = forms.BooleanField(
+        required=True, help_text='cc stands for "carbon copy." You will get a copy in your mailbox.'
+    )
+
+
 class TestForm(forms.Form):
     """Form with a variety of widgets to test django_bootstrap5 rendering."""
 
@@ -47,7 +55,9 @@ class TestForm(forms.Form):
     category5 = forms.ChoiceField(widget=RadioSelectButtonGroup, choices=MEDIA_CHOICES)
     color = forms.CharField(widget=TextInput(attrs={"type": "color"}))
     range = forms.IntegerField(widget=TextInput(attrs={"type": "range"}))
-    addon = forms.CharField(widget=forms.TextInput(attrs={"addon_before": "before", "addon_after": "after"}))
+    addon = forms.CharField(
+        widget=forms.TextInput(attrs={"addon_before": "before", "addon_after": "after"}), help_text="Addons work!"
+    )
     date5 = forms.DateField(widget=TextInput(attrs={"type": "date"}))
     time5 = forms.TimeField(widget=TextInput(attrs={"type": "time"}))
     url5 = forms.CharField(widget=TextInput(attrs={"type": "url"}))

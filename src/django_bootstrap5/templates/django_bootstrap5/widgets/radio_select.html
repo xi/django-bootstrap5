@@ -1,4 +1,4 @@
-{#<div{% include "django/forms/widgets/attrs.html" %}>#}
+<div class="{{ widgets.attrs.class }}" %}>
     {% for group, options, index in widget.optgroups %}
         {% if group %}
             <div>{{ group }}</div>{% endif %}
@@ -14,4 +14,4 @@
             </div>
         {% endfor %}
     {% endfor %}
-{#</div>#}
+</div>

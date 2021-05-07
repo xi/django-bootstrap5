@@ -488,14 +488,11 @@ class FieldRenderer(BaseRenderer):
                 format_html('<span class="input-group-text">{}</span>', self.addon_after) if self.addon_after else ""
             )
             if addon_before or addon_after:
-                classes = "input-group mb-3"
+                classes = "input-group"
                 if self.server_side_validation and self.get_server_side_validation_classes():
                     classes = merge_css_classes(classes, "has-validation")
-                field = format_html(
-                    '<div class="{}">{}{}{}{}{}</div>', classes, addon_before, field, addon_after, errors, help
-                )
+                field = format_html('<div class="{}">{}{}{}{}</div>', classes, addon_before, field, addon_after, errors)
                 errors = ""
-                help = ""
 
         if isinstance(self.widget, CheckboxInput):
             field = format_html('<div class="{}">{}{}{}</div>', self.get_checkbox_classes(), field, errors, help)

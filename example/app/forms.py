@@ -13,6 +13,13 @@ MEDIA_CHOICES = (
 )
 
 
+class xTestForm(forms.Form):
+    use_required_attribute = False
+    addon = forms.CharField(
+        widget=forms.TextInput(attrs={"addon_before": "before", "addon_after": "after"}), help_text="Addons work!"
+    )
+
+
 class TestForm(forms.Form):
     """Form with a variety of widgets to test django_bootstrap5 rendering."""
 
